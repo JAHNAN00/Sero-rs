@@ -22,7 +22,6 @@ async function onClick() {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
 
   color: var(--muted);
   cursor: pointer;

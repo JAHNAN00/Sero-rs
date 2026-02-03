@@ -120,7 +120,8 @@ function select(key: string) {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.28;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  font-kerning: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

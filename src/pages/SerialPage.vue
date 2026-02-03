@@ -223,7 +223,7 @@ onBeforeUnmount(() => {
           class="sendInput ui-mono"
           v-model="input"
           :disabled="!props.opened"
-          :placeholder="props.opened ? 'Type command for serial port' : 'Open serial first'"
+          :placeholder="props.opened ? 'Type command for serial port' : 'Connect to serial device first'"
           @keydown.enter="sendMock"
         />
 

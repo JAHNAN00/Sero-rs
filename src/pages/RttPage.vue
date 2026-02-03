@@ -188,7 +188,7 @@ onBeforeUnmount(() => {
         <div ref="channelRef" class="channelPicker" :class="{ open: channelOpen }">
           <button class="channelTrigger ui-mono" :disabled="!props.opened" @click="toggleChannelMenu">
             <span>Channel {{ channel }}</span>
-            <span class="triggerChevron">▾</span>
+            <span class="triggerChevron">▴</span>
           </button>
           <div v-if="channelOpen" class="channelMenu">
             <button
@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
           class="sendInput ui-mono"
           v-model="input"
           :disabled="!props.opened"
-          :placeholder="props.opened ? 'Type command for RTT channel' : 'Open serial first'"
+          :placeholder="props.opened ? 'Type command for RTT channel' : 'Connect to RTT target first'"
           @keydown.enter="sendMock"
         />
 
@@ -389,7 +389,7 @@ onBeforeUnmount(() => {
 }
 
 .ts {
-  color: color-mix(in oklab, var(--brand), #b8f1e8 36%);
+  color: #7aa2ff;
   margin-right: 0;
 }
 
@@ -450,11 +450,6 @@ onBeforeUnmount(() => {
 
 .triggerChevron {
   color: var(--muted);
-  transition: transform 0.16s ease;
-}
-
-.channelPicker.open .triggerChevron {
-  transform: rotate(180deg);
 }
 
 .channelTrigger:focus {
@@ -497,7 +492,7 @@ onBeforeUnmount(() => {
 
 @media (prefers-color-scheme: light) {
   .ts {
-    color: #0f766e;
+    color: #315fb8;
   }
 
   .kind-rx {

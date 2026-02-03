@@ -102,7 +102,8 @@ defineProps<{
 .headerTitle {
   font-size: clamp(24px, 2.2vw, 30px);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
+  font-kerning: none;
   line-height: 1.12;
 }
 

@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "sero-rs",
+        "title": "Sero",
         "width": 800,
         "height": 500,
         "minWidth": 800,
