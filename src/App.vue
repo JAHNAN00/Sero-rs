@@ -25,9 +25,9 @@ const { opened, busy, statusText, toggle } = useSerial();
 const pageTitle = computed(() => {
   switch (active.value) {
     case "serial":
-      return "Serial";
+      return "Serial Monitor";
     case "rtt":
-      return "RTT Moniter";
+      return "RTT Monitor";
     case "tcp":
       return "Network";
   }

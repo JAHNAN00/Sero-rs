@@ -39,7 +39,7 @@ defineProps<{
   width: 100%;
 
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 210px 1fr;
   grid-template-rows: 1fr;
   gap: 10px;
 
@@ -52,26 +52,30 @@ defineProps<{
   flex-direction: column;
   min-width: 0;
   height: 100%;
-  padding: 8px;
+  padding: 10px;
   border-radius: var(--radius-lg);
 }
 
 .leftTop {
   flex: 0 0 auto;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .leftNav {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
-  padding-right: 2px;
+  padding-right: 4px;
 }
 
 .leftFooter {
-  margin-top: 6px;
-  padding-top: 6px;
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in oklab, var(--border), transparent 18%);
+  font-size: 12px;
 }
 
 .right {
@@ -91,14 +95,15 @@ defineProps<{
 
 .header {
   flex: 0 0 auto;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--border);
 }
 
 .headerTitle {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
 }
 
 .content {
@@ -111,5 +116,17 @@ defineProps<{
 .content > :deep(.page) {
   height: 100%;
   min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 180px 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .headerTitle {
+    font-size: 22px;
+  }
 }
 </style>

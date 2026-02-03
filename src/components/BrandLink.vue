@@ -20,23 +20,21 @@ async function onClick() {
 <style scoped>
 .brand {
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 
   color: var(--muted);
   cursor: pointer;
   user-select: none;
-
-  /* 璁╁畠鏇村儚鈥滅讲鍚嶁€濓紝鑰屼笉鏄寜閽?*/
   opacity: 0.9;
-  transition: color 0.16s ease, opacity 0.16s ease;
+  transition: color 0.16s ease, opacity 0.16s ease, letter-spacing 0.16s ease;
 }
 
 .brand:hover {
-  color: var(--text);
+  color: color-mix(in oklab, var(--brand), var(--text) 48%);
   opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  letter-spacing: 0.08em;
 }
 
 .brand:active {

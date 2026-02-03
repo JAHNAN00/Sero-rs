@@ -136,7 +136,7 @@ onBeforeUnmount(() => {
     <div class="row">
       <div class="meta ui-badge">
         <span class="ui-dot" :class="{ ok: props.opened }"></span>
-        <span>{{ props.opened ? "Opened" : "Closed" }}</span>
+        <span class="statusText">{{ props.opened ? "Opened" : "Closed" }}</span>
       </div>
 
       <span class="topSep" aria-hidden="true"></span>
@@ -205,7 +205,6 @@ onBeforeUnmount(() => {
     <div class="panel ui-card ui-card-strong">
       <div class="panelTitle">Serial Stream</div>
       <div ref="logRef" class="log ui-mono">
-        <div v-if="logs.length === 0" class="empty">No serial messages.</div>
         <div v-for="(l, i) in logs" :key="i" class="line">
           <span v-if="showTimestamp" class="ts">[{{ l.time }}]</span>
           <span
@@ -295,7 +294,7 @@ onBeforeUnmount(() => {
 .page {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   height: 100%;
   min-height: 0;
 }
@@ -310,6 +309,12 @@ onBeforeUnmount(() => {
 
 .meta {
   margin-top: 0;
+}
+
+.statusText {
+  display: inline-block;
+  width: 6.6ch;
+  text-align: left;
 }
 
 .topSep {
@@ -329,7 +334,8 @@ onBeforeUnmount(() => {
 
 .metaLabel {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.3;
 }
 
 .metaInput {
@@ -394,7 +400,7 @@ onBeforeUnmount(() => {
   z-index: 10;
   padding: 6px;
   border-radius: var(--radius-md);
-  background: #1b2233;
+  background: var(--surface-raised);
   border: 1px solid color-mix(in oklab, var(--border), transparent 8%);
   box-shadow: var(--shadow-soft);
   white-space: normal;
@@ -432,7 +438,8 @@ onBeforeUnmount(() => {
 .compactToggle {
   min-width: 0;
   padding: 6px 8px;
-  font-size: 11px;
+  font-size: 12px;
+  letter-spacing: 0.01em;
   font-weight: 700;
 }
 
@@ -443,7 +450,7 @@ onBeforeUnmount(() => {
 }
 
 .panel {
-  padding: 14px;
+  padding: 12px;
   border-radius: var(--radius-lg);
   flex: 1 1 auto;
   min-height: 0;
@@ -452,11 +459,11 @@ onBeforeUnmount(() => {
 }
 
 .panelTitle {
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 8px;
   color: var(--muted);
   font-size: 12px;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -466,7 +473,7 @@ onBeforeUnmount(() => {
   overflow: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 10px;
+  padding: 8px;
   background: color-mix(in oklab, var(--panel), transparent 15%);
 }
 
@@ -476,12 +483,13 @@ onBeforeUnmount(() => {
   flex-wrap: wrap;
   gap: 2px;
   white-space: pre-wrap;
-  padding: 2px 0;
+  padding: 1px 0;
+  line-height: 1.24;
   color: color-mix(in oklab, var(--text), var(--muted) 18%);
 }
 
 .ts {
-  color: #bda7ff;
+  color: #7aa2ff;
 }
 
 .kindTag {
@@ -489,24 +497,19 @@ onBeforeUnmount(() => {
 }
 
 .kind-tx {
-  color: #f7b955;
+  color: #dc8d21;
 }
 
 .kind-rx {
-  color: #63e6a9;
+  color: #10b981;
 }
 
 .text {
   color: color-mix(in oklab, var(--text), var(--muted) 12%);
 }
 
-.empty {
-  color: var(--muted);
-  padding: 6px 0;
-}
-
 .send {
-  margin-top: 12px;
+  margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -527,7 +530,7 @@ onBeforeUnmount(() => {
 }
 
 .controlRow {
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -551,7 +554,8 @@ onBeforeUnmount(() => {
 
 .suffixLabel {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.3;
 }
 
 .suffixSegment {
@@ -602,7 +606,7 @@ onBeforeUnmount(() => {
 
 @media (prefers-color-scheme: light) {
   .ts {
-    color: #775fc7;
+    color: #315fb8;
   }
 
   .kind-rx {
@@ -614,12 +618,14 @@ onBeforeUnmount(() => {
   }
 
   .metaMenu {
-    background: #f2f5fb;
+    background: var(--surface-raised);
   }
 }
 
 .hint {
   font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
   color: var(--muted);
 }
 </style>

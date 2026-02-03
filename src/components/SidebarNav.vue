@@ -47,15 +47,16 @@ function select(key: string) {
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .navTitle {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--muted);
-  padding: 6px 6px 2px 6px;
-  letter-spacing: 0.4px;
+  padding: 4px 4px 2px 4px;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
   text-transform: uppercase;
 }
 
@@ -67,26 +68,24 @@ function select(key: string) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-
-  padding: 10px 12px;
-
-  border-radius: var(--radius-lg);
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--panel);
+  background: color-mix(in oklab, var(--surface), var(--surface-2) 30%);
 
   cursor: pointer;
 
-  /* 关键：强制按钮文字跟随主题色 */
   color: var(--text);
 
   overflow: hidden;
-  transition: border-color 0.2s ease, transform 0.06s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.08s ease, background 0.2s ease;
 }
 
 .navItem:hover {
-  border-color: color-mix(in oklab, var(--brand-2), var(--border) 55%);
-  background: color-mix(in oklab, var(--panel), var(--panel-2) 35%);
+  border-color: color-mix(in oklab, var(--brand-2), var(--border) 45%);
+  background: color-mix(in oklab, var(--surface-raised), var(--brand) 12%);
+  transform: translateX(2px);
 }
 
 .navItem:active {
@@ -94,8 +93,8 @@ function select(key: string) {
 }
 
 .navItem.active {
-  border-color: color-mix(in oklab, var(--brand), var(--border) 35%);
-  background: color-mix(in oklab, var(--panel-2), var(--brand) 10%);
+  border-color: color-mix(in oklab, var(--brand), var(--border) 28%);
+  background: color-mix(in oklab, var(--surface-raised), var(--brand) 18%);
 }
 
 .navLeft {
@@ -106,19 +105,22 @@ function select(key: string) {
 }
 
 .navIcon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: grid;
   place-items: center;
-  border-radius: 8px;
-  background: color-mix(in oklab, var(--panel), var(--panel-2) 50%);
+  border-radius: 7px;
+  background: color-mix(in oklab, var(--surface-2), var(--surface) 52%);
   border: 1px solid var(--border);
-  color: var(--muted);
+  color: color-mix(in oklab, var(--muted), var(--text) 15%);
   flex: 0 0 auto;
 }
 
 .navLabel {
   font-weight: 600;
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -126,10 +128,12 @@ function select(key: string) {
 
 .chev {
   color: var(--muted);
-  font-size: 18px;
+  font-size: 16px;
   transform: translateY(-1px);
   flex: 0 0 auto;
 }
-
-
+.navItem.active .navIcon {
+  border-color: color-mix(in oklab, var(--brand), var(--border) 45%);
+  color: color-mix(in oklab, var(--brand), var(--text) 25%);
+}
 </style>

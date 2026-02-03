@@ -1,7 +1,5 @@
 <template>
   <div class="page">
-    <div class="title">Network</div>
-
     <div class="ui-card ui-card-strong card">
       <div class="cardHeader">Network Console</div>
 
@@ -19,14 +17,9 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   height: 100%;
   min-height: 0;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: 600;
 }
 
 .card {
@@ -38,32 +31,34 @@
 }
 
 .cardHeader {
-  font-size: 13px;
-  letter-spacing: 0.4px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .contentBox {
   border: 1px solid color-mix(in oklab, var(--border), transparent 15%);
   border-radius: var(--radius-md);
-  padding: 14px;
-  background: color-mix(in oklab, var(--panel-2), transparent 8%);
+  padding: 16px;
+  background: color-mix(in oklab, var(--surface-raised), transparent 8%);
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .lead {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  color: color-mix(in oklab, var(--text), var(--muted) 12%);
+  line-height: 1.35;
+  color: color-mix(in oklab, var(--text), var(--muted) 8%);
 }
 
 .muted {
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 72ch;
 }
 </style>
