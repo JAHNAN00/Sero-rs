@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 defineProps<{
   title?: string;
 }>();
@@ -37,59 +37,45 @@ defineProps<{
 .shell {
   height: 100vh;
   width: 100vw;
+  min-width: 800px;
+  min-height: 500px;
 
-  /* 关键：用 grid 固定左列 + 右侧自适应 */
   display: grid;
   grid-template-columns: 160px 1fr;
   grid-template-rows: 1fr;
-  gap: 14px;
+  gap: 10px;
 
-  padding: 14px;
+  padding: 10px;
   overflow: hidden;
 }
 
-/* 左侧整列 */
 .left {
   display: flex;
   flex-direction: column;
   min-width: 0;
   height: 100%;
-  padding: 10px;            /* 原来 12px，改小一点 */
+  padding: 8px;
   border-radius: var(--radius-lg);
 }
 
-/* 顶部按钮容器：不伸缩 */
 .leftTop {
   flex: 0 0 auto;
-  margin-bottom: 8px;   /* 原来 10px，可再紧一点 */
+  margin-bottom: 6px;
 }
 
-
-
-/* 导航容器：占剩余高度 */
-/* .leftNav {
+.leftNav {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
-  padding-right: 4px;
-} */
-.leftNav {
-  flex: 1 1 auto;
-  min-height: 0;     /* ✅ flex 容器滚动的关键 */
-  overflow: auto;    /* ✅ 内容多时滚动 */
-  padding-right: 4px;
+  padding-right: 2px;
 }
 
-
-/* 底部说明：不伸缩 */
 .leftFooter {
-  margin-top: 8px;
-  padding-top: 8px;
+  margin-top: 6px;
+  padding-top: 6px;
   font-size: 11px;
 }
 
-
-/* 右侧内容区域：占满剩余空间 */
 .right {
   min-width: 0;
   height: 100%;
@@ -107,7 +93,7 @@ defineProps<{
 
 .header {
   flex: 0 0 auto;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -120,8 +106,12 @@ defineProps<{
 .content {
   flex: 1 1 auto;
   min-height: 0;
-  padding: 16px;
-  overflow: auto;
+  padding: 12px;
+  overflow: hidden;
 }
 
+.content > :deep(.page) {
+  height: 100%;
+  min-height: 0;
+}
 </style>

@@ -14,7 +14,9 @@
       {
         "title": "sero-rs",
         "width": 800,
-        "height": 600
+        "height": 500,
+        "minWidth": 800,
+        "minHeight": 500
       }
     ],
     "security": {

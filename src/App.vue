@@ -5,11 +5,11 @@ import { useSerial } from "./composables/useSerial";
 import AppShell from "./components/AppShell.vue";
 import SerialToggleButton from "./components/SerialToggleButton.vue";
 import SidebarNav, { type NavItem } from "./components/SidebarNav.vue";
-import AppBrandLink from "./components/AppBrandLink.vue";
+import BrandLink from "./components/BrandLink.vue";
 
 import SerialPage from "./pages/SerialPage.vue";
 import RttPage from "./pages/RttPage.vue";
-import TcpPage from "./pages/TcpPage.vue";
+import NetworkPage from "./pages/NetworkPage.vue";
 
 type PageKey = "serial" | "rtt" | "tcp";
 
@@ -27,9 +27,9 @@ const pageTitle = computed(() => {
     case "serial":
       return "Serial";
     case "rtt":
-      return "RTT";
+      return "RTT Moniter";
     case "tcp":
-      return "TCP";
+      return "Network";
   }
 });
 
@@ -40,7 +40,7 @@ const CurrentPage = computed(() => {
     case "rtt":
       return RttPage;
     case "tcp":
-      return TcpPage;
+      return NetworkPage;
   }
 });
 </script>
@@ -57,7 +57,7 @@ const CurrentPage = computed(() => {
 
     <template #left-footer>
       <div class="leftFooter">
-        <AppBrandLink name="Sero" href="https://github.com/JAHNAN00/Sero-rs" />
+        <BrandLink name="Sero" href="https://github.com/JAHNAN00/Sero-rs" />
       </div>
     </template>
 

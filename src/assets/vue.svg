@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="37.07" height="36" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 198"><path fill="#41B883" d="M204.8 0H256L128 220.8L0 0h97.92L128 51.2L157.44 0h47.36Z"></path><path fill="#41B883" d="m0 0l128 220.8L256 0h-51.2L128 132.48L50.56 0H0Z"></path><path fill="#35495E" d="M50.56 0L128 133.12L204.8 0h-47.36L128 51.2L97.92 0H50.56Z"></path></svg>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="outerBg" x1="32" y1="22" x2="226" y2="234" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F5CFF"/>
+      <stop offset="1" stop-color="#14C58E"/>
+    </linearGradient>
+    <linearGradient id="innerShade" x1="40" y1="44" x2="214" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#273D72" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0E2A3E" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="sStroke" x1="64" y1="74" x2="184" y2="182" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3F8FF"/>
+      <stop offset="0.82" stop-color="#E8F2FF"/>
+      <stop offset="1" stop-color="#C6B8FF"/>
+    </linearGradient>
+    <linearGradient id="arcL" x1="58" y1="86" x2="72" y2="162" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#89F2C4"/>
+      <stop offset="1" stop-color="#73E3BE"/>
+    </linearGradient>
+    <linearGradient id="arcR" x1="198" y1="86" x2="184" y2="162" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FD3FF"/>
+      <stop offset="1" stop-color="#79C5FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="#0F1420"/>
+  <rect x="24" y="24" width="208" height="208" rx="46" fill="url(#outerBg)"/>
+  <rect x="32" y="32" width="192" height="192" rx="40" fill="url(#innerShade)"/>
+
+  <!-- Upright "S", centered and balanced -->
+  <path
+    d="M170 77H104
+       C90.7452 77 80 86.7452 80 101
+       C80 114.255 90.7452 125 104 125
+       H152
+       C165.255 125 176 135.745 176 149
+       C176 162.255 165.255 173 152 173
+       H86"
+    stroke="url(#sStroke)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Symmetric side arcs -->
+  <path d="M56 90C49 100 45 112 45 124C45 136 49 148 56 158" stroke="url(#arcR)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M200 90C207 100 211 112 211 124C211 136 207 148 200 158" stroke="url(#arcL)" stroke-width="6" stroke-linecap="round"/>
+</svg>

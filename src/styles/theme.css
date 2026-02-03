@@ -1,4 +1,5 @@
 :root {
+    color-scheme: dark;
     /* ===== App background (stage) ===== */
     /* 深色更偏蓝灰工具风，避免紫调 */
     --bg: #0f1420;
@@ -47,6 +48,7 @@
 /* 浅色模式：冷白工具风，避免紫色背景 */
 @media (prefers-color-scheme: light) {
     :root {
+        color-scheme: light;
         --bg: #f6f7fb;
 
         /* 浅色面板：白为主，但不要“飘”，给一点灰感 */
@@ -224,7 +226,7 @@ select:focus {
 html,
 body {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* 2) 彻底禁掉滚动链（触摸板惯性不会把滚动传给 body） */

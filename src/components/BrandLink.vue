@@ -27,7 +27,7 @@ async function onClick() {
   cursor: pointer;
   user-select: none;
 
-  /* 让它更像“署名”，而不是按钮 */
+  /* 璁╁畠鏇村儚鈥滅讲鍚嶁€濓紝鑰屼笉鏄寜閽?*/
   opacity: 0.9;
   transition: color 0.16s ease, opacity 0.16s ease;
 }
