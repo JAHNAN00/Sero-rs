@@ -305,8 +305,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .meta {
@@ -604,6 +603,10 @@ onBeforeUnmount(() => {
 @media (prefers-color-scheme: light) {
   .ts {
     color: #775fc7;
+  }
+
+  .kind-rx {
+    color: #0e8f52;
   }
 
   .metaTrigger {

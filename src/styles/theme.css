@@ -226,7 +226,12 @@ select:focus {
 html,
 body {
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+  overflow: hidden;
 }
 
 /* 2) 彻底禁掉滚动链（触摸板惯性不会把滚动传给 body） */

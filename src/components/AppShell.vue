@@ -35,10 +35,8 @@ defineProps<{
 
 <style scoped>
 .shell {
-  height: 100vh;
-  width: 100vw;
-  min-width: 800px;
-  min-height: 500px;
+  height: 100%;
+  width: 100%;
 
   display: grid;
   grid-template-columns: 160px 1fr;
