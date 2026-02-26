@@ -4,8 +4,10 @@ pub mod subscription;
 
 use std::sync::{Arc, Mutex};
 
+#[allow(unused_imports)]
 pub use registry::ParserRegistry;
 pub use stream_manager::StreamManager;
+#[allow(unused_imports)]
 pub use subscription::SubscriptionHub;
 
 use crate::sources::{NetworkSource, RttSource, SerialSource};

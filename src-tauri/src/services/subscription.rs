@@ -2,10 +2,12 @@ use tauri::{AppHandle, Emitter};
 
 use crate::core::types::{Metric, ParsedEvent};
 
+#[allow(dead_code)]
 pub struct SubscriptionHub {
     app: AppHandle,
 }
 
+#[allow(dead_code)]
 impl SubscriptionHub {
     pub fn new(app: AppHandle) -> Self {
         Self { app }

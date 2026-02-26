@@ -7,6 +7,7 @@ pub struct RttSource {
     id: String,
     label: String,
     status: SourceStatus,
+    #[allow(dead_code)]
     sender: Option<Sender<DataPacket>>,
 }
 

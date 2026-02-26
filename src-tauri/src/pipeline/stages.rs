@@ -1,5 +1,6 @@
 use crate::core::types::{now_millis, DataPacket, Metric, PipelineItem};
 
+#[allow(dead_code)]
 pub trait Stage {
     fn name(&self) -> &str;
     fn process(&self, item: PipelineItem) -> Vec<PipelineItem>;

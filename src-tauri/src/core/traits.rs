@@ -2,6 +2,7 @@ use std::sync::mpsc::Sender;
 
 use crate::core::types::{DataPacket, SourceKind, SourceStatus};
 
+#[allow(dead_code)]
 pub trait DataSource: Send {
     fn id(&self) -> &str;
     fn label(&self) -> &str;

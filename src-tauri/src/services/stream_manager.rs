@@ -75,6 +75,7 @@ impl StreamManager {
         Ok(())
     }
 
+    #[allow(dead_code)]
     pub fn pipeline_status(&self, pipeline_id: &str) -> Option<(String, SourceKind, SourceStatus)> {
         self.pipelines.get(pipeline_id).map(|pipeline| {
             (

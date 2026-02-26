@@ -7,6 +7,7 @@ pub struct SerialSource {
     id: String,
     label: String,
     status: SourceStatus,
+    #[allow(dead_code)]
     sender: Option<Sender<DataPacket>>,
 }
 
