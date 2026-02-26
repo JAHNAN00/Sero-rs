@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { invoke } from "@tauri-apps/api/core";
+import { listen, UnlistenFn } from "@tauri-apps/api/event";
 
 type LogKind = "info" | "tx" | "rx";
 
@@ -40,6 +42,7 @@ const appendCr = ref(false);
 const logRef = ref<HTMLElement | null>(null);
 const portRef = ref<HTMLElement | null>(null);
 const baudRef = ref<HTMLElement | null>(null);
+let unlistenData: UnlistenFn | null = null;
 
 function scrollToBottom() {
   if (!autoScroll.value) return;
@@ -79,8 +82,16 @@ function sendMock() {
   append(displayPayload, "tx");
 }
 
-function mockRx() {
-  append("device response: ok", "rx");
+async function mockRx() {
+  if (!props.opened) return;
+  try {
+    await invoke("mock_rx", {
+      sourceId: "serial",
+      text: "device response: ok | temp=23.5 | v=3.3",
+    });
+  } catch (err) {
+    console.warn("[serial] mock_rx failed:", err);
+  }
 }
 
 function toggleTimestamp() {
@@ -122,12 +133,18 @@ function onDocPointerDown(e: Event) {
   if (!baudRef.value?.contains(target)) baudOpen.value = false;
 }
 
-onMounted(() => {
+onMounted(async () => {
   document.addEventListener("pointerdown", onDocPointerDown);
+  unlistenData = await listen("data_stream::serial", (event) => {
+    if (!props.opened) return;
+    const payload = event.payload as { text?: string } | null;
+    if (payload?.text) append(payload.text, "rx");
+  });
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener("pointerdown", onDocPointerDown);
+  if (unlistenData) unlistenData();
 });
 </script>
 

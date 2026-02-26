@@ -1,5 +1,7 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { invoke } from "@tauri-apps/api/core";
+import { listen, UnlistenFn } from "@tauri-apps/api/event";
 
 type LogKind = "info" | "tx" | "rx";
 
@@ -33,6 +35,7 @@ const appendCr = ref(false);
 const chipModel = ref("STM32F103C8T6");
 const logRef = ref<HTMLElement | null>(null);
 const channelRef = ref<HTMLElement | null>(null);
+let unlistenData: UnlistenFn | null = null;
 
 function scrollToBottom() {
   if (!autoScroll.value) return;
@@ -72,8 +75,16 @@ function sendMock() {
   append(displayPayload, "tx");
 }
 
-function mockRx() {
-  append("target heartbeat ok", "rx");
+async function mockRx() {
+  if (!props.opened) return;
+  try {
+    await invoke("mock_rx", {
+      sourceId: "rtt",
+      text: "target heartbeat ok | fps=60 | temp=41.2",
+    });
+  } catch (err) {
+    console.warn("[rtt] mock_rx failed:", err);
+  }
 }
 
 function toggleTimestamp() {
@@ -112,12 +123,18 @@ function onDocPointerDown(e: Event) {
   if (!channelRef.value?.contains(target)) closeChannelMenu();
 }
 
-onMounted(() => {
+onMounted(async () => {
   document.addEventListener("pointerdown", onDocPointerDown);
+  unlistenData = await listen("data_stream::rtt", (event) => {
+    if (!props.opened) return;
+    const payload = event.payload as { text?: string } | null;
+    if (payload?.text) append(payload.text, "rx");
+  });
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener("pointerdown", onDocPointerDown);
+  if (unlistenData) unlistenData();
 });
 </script>
 
@@ -188,7 +205,7 @@ onBeforeUnmount(() => {
         <div ref="channelRef" class="channelPicker" :class="{ open: channelOpen }">
           <button class="channelTrigger ui-mono" :disabled="!props.opened" @click="toggleChannelMenu">
             <span>Channel {{ channel }}</span>
-            <span class="triggerChevron">▴</span>
+            <span class="triggerChevron">?</span>
           </button>
           <div v-if="channelOpen" class="channelMenu">
             <button
@@ -609,3 +626,8 @@ onBeforeUnmount(() => {
   color: var(--muted);
 }
 </style>
+
+
+
+
+
